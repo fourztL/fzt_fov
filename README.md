@@ -28,9 +28,10 @@ With Glasses:
 
 ## Important 
 
-If you use qb-radialmenu, you must make the following change for the glasses to work properly
+EN: If you use qb-radialmenu, you must make the following change for the glasses to work properly
+ESP: Si usas qb-radialmenu, debes realizar el siguiente cambio para que funcione bien las gafas
 
-Line 908 qb-radialmenu/client/clothing.lua
+Line/Linea [908] - qb-radialmenu/client/clothing.lua
 
 ```
 function ToggleProps(whic)
@@ -107,8 +108,13 @@ end
 ```
 
 
-## Licencia
+## License/Licencia
+EN:
+This project is protected under the [Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC-4.0) License](LICENSE).  
+It is strictly prohibited to sell or monetize this software.  
+For more details, see the [LICENSE](LICENSE) file.
 
+ESP:
 Este proyecto está protegido bajo la [Licencia Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC-4.0)](LICENSE).  
 Está estrictamente prohibido vender o monetizar este software.  
 Para más detalles, consulta el archivo [LICENSE](LICENSE).
