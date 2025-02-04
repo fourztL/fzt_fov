@@ -12,7 +12,7 @@ Passenger:
 
 ![image](https://github.com/user-attachments/assets/509ea5f4-d853-4780-ac6e-de4ab7db0e04)
 
-## Miopia 
+## Myopia 
 
 without Glasses:
 ![image](https://github.com/user-attachments/assets/9d66003e-bf49-42fc-ac18-6a7fc61f39a7)
