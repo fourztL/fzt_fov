@@ -1,8 +1,12 @@
 # Images 
 
 ## FOV 1st person Car
-
+Driver:
 ![image](https://github.com/user-attachments/assets/a1d41139-0131-4b20-85ab-d97034338c0d)
+
+Passenger:
+![image](https://github.com/user-attachments/assets/39bd59f7-9372-4dd9-9441-dc5e16ad7cbb)
+
 
 ## Blur on your back
 
