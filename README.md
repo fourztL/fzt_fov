@@ -21,6 +21,91 @@ With Glasses:
 
 ![image](https://github.com/user-attachments/assets/b435f3f7-9d3a-4a12-b76d-ea4283fd0b24)
 
+## Resmon 
+
+![image](https://github.com/user-attachments/assets/c4359860-61c1-445e-a96a-f2ce204a02fc)
+
+
+## Important 
+
+If you use qb-radialmenu, you must make the following change for the glasses to work properly
+
+Line 908 qb-radialmenu/client/clothing.lua
+
+```
+function ToggleProps(whic)
+    local which = whic
+    if type(whic) == 'table' then
+        which = tostring(whic.id)
+    end
+    Wait(50)
+    if Cooldown then return end
+
+    local Prop = Props[which]
+    local Ped = PlayerPedId()
+    local Cur = {
+        Id = Prop.Prop,
+        Ped = Ped,
+        Prop = GetPedPropIndex(Ped, Prop.Prop),
+        Texture = GetPedPropTextureIndex(Ped, Prop.Prop),
+    }
+
+    local isGlasses = Prop.Prop == 1
+
+    if not Prop.Variants then
+        if Cur.Prop ~= -1 then
+            PlayToggleEmote(Prop.Emote.Off, function()
+                LastEquipped[which] = Cur
+                ClearPedProp(Ped, Prop.Prop)
+
+                if isGlasses then
+                    TriggerServerEvent("fzt_fov:updateGlasses", 0, 0)
+                end
+            end)
+            return true
+        else
+            local Last = LastEquipped[which] -- Si el jugador ya quitó el prop, vuélvelo a equipar
+            if Last then
+                PlayToggleEmote(Prop.Emote.On, function()
+                    SetPedPropIndex(Ped, Prop.Prop, Last.Prop, Last.Texture, true)
+
+                    if isGlasses then
+                        TriggerServerEvent("fzt_fov:updateGlasses", Last.Prop, Last.Texture)
+                    end
+                end)
+                LastEquipped[which] = false
+                return true
+            end
+        end
+        Notify(Lang:t('info.nothing_to_remove'))
+        return false
+    else
+        local Gender = IsMpPed(Ped)
+        if not Gender then
+            Notify(Lang:t('info.wrong_ped'))
+            return false
+        end
+        variations = Prop.Variants[Gender]
+        for k, v in pairs(variations) do
+            if Cur.Prop == k then
+                PlayToggleEmote(Prop.Emote.On, function()
+                    SetPedPropIndex(Ped, Prop.Prop, v, Cur.Texture, true)
+
+                    -- Actualizar metadatos y notificar al cliente si son lentes
+                    if isGlasses then
+                        TriggerServerEvent("fzt_fov:updateGlasses", v, Cur.Texture)
+                    end
+                end)
+                return true
+            end
+        end
+        Notify(Lang:t('info.no_variants'))
+        return false
+    end
+end
+
+```
+
 
 ## Licencia
 
