@@ -29,6 +29,7 @@ With Glasses:
 ## Important 
 
 EN: If you use qb-radialmenu, you must make the following change for the glasses to work properly
+
 ESP: Si usas qb-radialmenu, debes realizar el siguiente cambio para que funcione bien las gafas
 
 Line/Linea [908] - qb-radialmenu/client/clothing.lua
